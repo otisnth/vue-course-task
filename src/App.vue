@@ -1,18 +1,41 @@
 <template>
   <div id="app">
-    
-    <router-view/>
+    <BaseHeader :userName="userName"/>
+    <main>
+      <router-view/>
+    </main>
+    <BaseFooter />
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import BaseFooter from './components/BaseFooter.vue';
+import BaseHeader from './components/BaseHeader.vue';
+export default{
+  components: {
+    BaseHeader,
+    BaseFooter
+  },
+  data(){
+    return{
+      userName:"Василий"
+    }
+  }
 }
 
+</script>
+
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#app {
+  display: grid;
+  height: 100vh;
+}
 
 </style>
