@@ -7,7 +7,7 @@
 	</div>
 
 	<div class="card-container">
-		<Card v-for="(item, index) in rangedList" :key="index" class="card-item" :item="item"/>
+		<Card v-for="(item, index) in rangedList" :key="index" :id="index" class="card-item" :item="item"/>
 	</div>
     
   </div>

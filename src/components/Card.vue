@@ -1,21 +1,26 @@
 <template>
     <div class="card" @mouseover="cardHovered = true" @mouseleave="cardHovered = false">
-        <div class="card-img">
-            <img :src="require(`../assets/img/` + item.imgPreview)">
-            <div class="card-description" v-if="cardHovered">
-                <p class="card-description_brand">{{ item.brand }}</p>
-                <p class="card-description_text">{{ item.description }}</p>
+        <router-link :to="{name:`detail`, params:{item: this.item, code: this.id}}">
+            <div class="card-img">
+                <img :src="require(`../assets/img/` + item.imgPreview)">
+                <div class="card-description" v-if="cardHovered">
+                    <p class="card-description_brand">{{ item.brand }}</p>
+                    <p class="card-description_text">{{ item.description }}</p>
+                </div>
             </div>
-        </div>
 
-        <p class="price">{{ transformPrice }} руб</p>
-        <div class="card-content">
-            <div class="brand">
-                Бренд
-                <span class="brand-name">{{ item.brand }}</span>
+            <p class="price">{{ item.price }} руб</p>
+            <div class="card-content">
+                <div class="brand">
+                    Бренд
+                    <span class="brand-name">{{ item.brand }}</span>
+                </div>
+                <p class="title">{{ item.title }}</p>
             </div>
-            <p class="title">{{ item.title }}</p>
-        </div>
+        </router-link>
+        
+
+        
 
     </div>
 </template>
@@ -28,12 +33,17 @@
             }
         },
         props:{
+            id:Number,
             item:Object,
         },
-        computed: {
-            transformPrice: function() {
-                return this.item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        methods:{
+            openDetail(id){
+                this.$route.params.push(this.item);
+                this.$router.push('catalog/' + id);
             }
+        },
+        mounted(){
+            this.item.price = this.item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         }
     }
 </script>

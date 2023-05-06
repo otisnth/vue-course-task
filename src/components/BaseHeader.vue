@@ -1,10 +1,13 @@
 <template>
     <header>
         <div class="container">
-            <div class="brand">
+            <router-link to="/">
+                <div class="brand">
                 <img src="@/assets/img/logo.svg" class="logo">
                 <h1 class="name">Курсовой макет</h1>
             </div>
+            </router-link>
+            
             
             <div class="action">
                 <button class="profile">

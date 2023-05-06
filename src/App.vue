@@ -33,6 +33,10 @@ export default{
   box-sizing: border-box;
 }
 
+a, a:visited, a:hover {
+  text-decoration: none;
+}
+
 body {
   height: 100vh;
   width: 100%;
