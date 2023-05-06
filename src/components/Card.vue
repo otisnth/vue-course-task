@@ -1,14 +1,20 @@
 <template>
-    <div class="card">
-        <img :src="require(`../assets/img/` + imgPreview)">
+    <div class="card" @mouseover="cardHovered = true" @mouseleave="cardHovered = false">
+        <div class="card-img">
+            <img :src="require(`../assets/img/` + item.imgPreview)">
+            <div class="card-description" v-if="cardHovered">
+                <p class="card-description_brand">{{ item.brand }}</p>
+                <p class="card-description_text">{{ item.description }}</p>
+            </div>
+        </div>
 
-        <p class="price">{{ price }} руб</p>
+        <p class="price">{{ transformPrice }} руб</p>
         <div class="card-content">
             <div class="brand">
                 Бренд
-                <span class="brand-name">{{ brand }}</span>
+                <span class="brand-name">{{ item.brand }}</span>
             </div>
-            <p class="title">{{ title }}</p>
+            <p class="title">{{ item.title }}</p>
         </div>
 
     </div>
@@ -16,19 +22,18 @@
 
 <script>
     export default {
+        data() {
+            return {
+                cardHovered: false
+            }
+        },
         props:{
-           title:{
-            type:String
-           },
-           brand:{
-            type:String
-           },
-           price:{
-            type:Number
-           },
-           imgPreview:{
-            type:String
-           }
+            item:Object,
+        },
+        computed: {
+            transformPrice: function() {
+                return this.item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+            }
         }
     }
 </script>
@@ -39,6 +44,40 @@
     display: grid;
     gap: 16px;
     
+    .card-img {
+        position: relative;
+    }
+
+    .card-description {
+        position: absolute;
+        bottom: 0;
+        left: calc(50% - 352px/2);
+        width: 352px;
+        display: grid;
+        padding: 32px 20px;
+        gap: 16px;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+    }
+
+    .card-description_brand {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 32px;
+        color: #354153;
+    }
+
+    .card-description_text {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 28px;
+        color: #354153;
+    }
+
     img {
         width: 352px;
     }
@@ -52,6 +91,12 @@
         color: #0D1421;
     }
 
+   
+    .card-content {
+        display: grid;
+        gap: 8px;
+    }
+
     .brand {
         font-family: 'Inter';
         font-style: normal;
@@ -63,10 +108,6 @@
 
     .brand-name {
         color: #354153;
-    }
-    .card-content {
-        display: grid;
-        gap: 8px;
     }
 
     .title {

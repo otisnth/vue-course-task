@@ -17,10 +17,14 @@
 <style lang="scss" scoped>
 
 footer {
-    align-self: end;
+    display: flex;
+    flex: 0 0 auto;
+    width: 100%;
+    justify-content: center;
     
     .container {
         max-width: 1920px;
+        width: 100%;
         display: grid;
         justify-content: start;
         padding: 24px 160px;

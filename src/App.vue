@@ -33,9 +33,23 @@ export default{
   box-sizing: border-box;
 }
 
-#app {
-  display: grid;
+body {
   height: 100vh;
+  width: 100%;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+
+#app {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+  height: 100%;
+  width: 100%;
 }
 
 </style>
