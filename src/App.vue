@@ -108,14 +108,18 @@ body {
 
 main {
   flex: 1 0 auto;
+  align-self: center;
+  width: 100%
 }
 
 
 #app {
   display: flex;
-  align-items: center;
+  align-content: center;
   flex-direction: column;
-  
+  padding-left:160px;
+  padding-right: 160px;
+  max-width: 1920px;
   height: 100%;
   width: 100%;
 }

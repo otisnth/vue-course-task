@@ -81,8 +81,8 @@ import ClickOutside from 'vue-click-outside'
 
     .detail-container {
         display: grid;
-	    max-width: 1920px;
-	    padding: 32px 160px;
+	    padding-top: 32px;
+        padding-bottom: 32px;
         gap: 64px;
         grid-template-columns: min-content auto;
     }

@@ -71,14 +71,15 @@ export default {
 
 .main-container {
 	display: grid;
-	max-width: 1920px;
-	padding: 32px 160px;
+	width: 100%;
+	padding-top: 32px;
+	padding-bottom: 32px;
 }
 
 .card-container {
 	display: grid;
-	justify-content: center;
-	grid-template-columns: repeat(4, minmax(auto, 400px));
+	justify-content: start;
+	grid-template-columns: repeat(4, auto);
 }
 
 .action-header {

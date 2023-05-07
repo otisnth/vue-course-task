@@ -82,8 +82,6 @@ import Card from '@/components/Card.vue';
 <style lang="scss" scoped>
 .main-container {
 	display: grid;
-    width: 1920px;
-	padding: 32px 160px;
     gap: 16px;
 }
 .cart-heading {
@@ -123,7 +121,7 @@ hr {
 .card-container {
 	display: grid;
 	justify-content: center;
-	grid-template-columns: repeat(4, minmax(auto, 400px));
+	grid-template-columns: repeat(4, auto);
 }
 .cart-container {
     display: grid;

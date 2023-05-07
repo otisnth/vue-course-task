@@ -23,11 +23,11 @@ footer {
     justify-content: center;
     
     .container {
-        max-width: 1920px;
         width: 100%;
         display: grid;
         justify-content: start;
-        padding: 24px 160px;
+        padding-top: 24px;
+        padding-bottom: 24px;
     }
 
     .copyright {

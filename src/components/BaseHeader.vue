@@ -48,9 +48,10 @@ header {
     justify-content: center;
 
     .container {
-        max-width: 1920px;
+        
         width: 100%;
-        padding: 20px 160px;
+        padding-top: 20px;
+        padding-bottom: 20px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
     }

@@ -45,6 +45,7 @@
 .card {
     padding: 24px;
     display: grid;
+    width: 400px;
     gap: 16px;
     
     .card-img {
@@ -54,7 +55,6 @@
     .card-description {
         position: absolute;
         bottom: 0;
-        left: calc(50% - 352px/2);
         width: 352px;
         display: grid;
         padding: 32px 20px;
@@ -82,7 +82,8 @@
     }
 
     img {
-        width: 352px;
+        max-width: 352px;
+        max-height: 420px;
     }
 
     .price {
