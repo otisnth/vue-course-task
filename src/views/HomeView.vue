@@ -36,7 +36,9 @@ export default {
 					imgPreview: "st/img1.png",
 					imgDetails: [
 						"st/img1.png", "st/img2.png", "st/img3.png", "st/img4.png"
-					]
+					],
+					sizes: {"XS":true, "S":true, "M":true, "L":true, "XL":false, "XXL":true}
+
 				},
 				{
 					brand: "АМИ Париж",
@@ -46,7 +48,8 @@ export default {
 					imgPreview: "ami/img1.png",
 					imgDetails: [
 						"ami/img1.png", "ami/img2.png", "ami/img3.png", "ami/img4.png"
-					]
+					],
+					sizes: {"XS":false, "S":false, "M":true, "L":true, "XL":false, "XXL":true}
 				},
 				{
 					brand: "Вквадрате2",
@@ -56,7 +59,8 @@ export default {
 					imgPreview: "quad2/img1.png",
 					imgDetails: [
 						"quad2/img1.png", "quad2/img2.png", "quad2/img3.png", "quad2/img4.png"
-					]
+					],
+					sizes: {"XS":true, "S":true, "M":true, "L":true, "XL":true, "XXL":true}
 				},
 				{
 					brand: "Акне Студия",
@@ -66,7 +70,8 @@ export default {
 					imgPreview: "akne/img1.png",
 					imgDetails: [
 						"akne/img1.png", "akne/img2.png", "akne/img3.png", "akne/img4.png"
-					]
+					],
+					sizes: {"XS":true, "S":false, "M":true, "L":true, "XL":false, "XXL":false}
 				}
 			],
 			currentSort: "По умолчанию",

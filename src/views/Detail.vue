@@ -15,9 +15,10 @@
             </div>
 
             <div class="detail-content_action">
-                <div class="btn btn-second">
-                    Выберите размер
+                <div class="btn btn-second select-size"  :class="{active:showSizes}" @click="this.showListSizes" v-click-outside="hideList">
+                    {{ selectedSize }}
                     <img src="@/assets/img/arrow.svg">
+                    <SelectList v-if="showSizes" :selectedSize="this.selectedSize" :sizes="this.item.sizes" @selectSize="selectSize"/>
                 </div>
                 <div class="btn btn-primary">
                     Добавить в корзину
@@ -31,17 +32,39 @@
 
 <script>
 import DetailSlider from '@/components/DetailSlider.vue';
+import SelectList from '@/components/SelectList.vue';
+import ClickOutside from 'vue-click-outside'
     export default {
+        methods:{
+            showListSizes(){
+                this.showSizes = !this.showSizes;
+            },
+            hideList() {
+                if(this.showSizes) this.showSizes = !this.showSizes;
+            },
+            selectSize(selectedSize){
+                this.selectedSize = selectedSize;
+            }
+
+        },
+        data() {
+            return {
+                selectedSize: "Выберите размер",
+                showSizes: false,
+            }
+        },
         components:{
-            DetailSlider
+            DetailSlider,
+            SelectList
         },
         props:{
-            item:Object
+            item:Object,
         },
         created() {
             this.item = this.$route.params["item"];
         },
-        methods: {
+        directives: {
+            ClickOutside
         }
     }
 </script>
@@ -113,9 +136,9 @@ import DetailSlider from '@/components/DetailSlider.vue';
             cursor: pointer;
             display: flex;
             gap: 8px;
+            justify-content: space-between;
             border-radius: 8px;
             padding: 12px 16px;
-            justify-content: center;
             align-items: center;
             font-family: 'Inter';
             font-style: normal;
@@ -132,6 +155,15 @@ import DetailSlider from '@/components/DetailSlider.vue';
             background: #FFFFFF;
             border: 1px solid #EAECF0;
             color: #354153;
+        }
+        .select-size{
+            position: relative;
+        }
+        .active {
+            background: #F2F4F7;
+            img {
+                transform: rotate(180deg);
+            }
         }
 
     }

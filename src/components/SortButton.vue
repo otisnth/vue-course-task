@@ -5,11 +5,11 @@
     
 
         <ul v-if="statusShow">
-        <li v-for="(item, index) in sortList"
-            :key="index"
-            @click="($event) => sort($event, item)">
-            {{ item }}
-        </li>
+            <li v-for="(item, index) in sortList"
+                :key="index"
+                @click="($event) => sort($event, item)">
+                {{ item }}
+            </li>
         </ul>
   </div>
 </template>
