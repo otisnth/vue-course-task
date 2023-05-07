@@ -10,7 +10,7 @@
             
             
             <div class="action">
-                <button class="profile">
+                <button class="profile" @click="showAuthModal">
                     <img src="@/assets/img/profile.svg">
                     <p class="username" v-if="userName">{{ userName }}</p>
                 </button>
@@ -28,6 +28,11 @@
             userName: {
                 type:String,
             }
+        },
+        methods:{
+            showAuthModal(){
+                this.$emit("showAuthModal");
+            },
         }
         
     }

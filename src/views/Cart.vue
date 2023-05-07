@@ -33,11 +33,10 @@
                 </ul>
                 <p class="payment-login">
                     Чтобы продолжить оформление заказа, необходимо
-                    <span>войти или зарегистрировать аккаунт</span>
+                    <span @click="showAuthModal">войти или зарегистрировать аккаунт</span>
                 </p>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -47,8 +46,13 @@ import Card from '@/components/Card.vue';
     export default {
         data() {
             return{
-                deliveryPrice: 750, 
+                deliveryPrice: 750,
             }
+        },
+        methods:{
+            showAuthModal(){
+                this.$emit("showAuthModal");
+            },
         },
         components:{
             CartItem,

@@ -1,24 +1,31 @@
 <template>
   <div id="app">
-    <BaseHeader :userName="userName"/>
+    <BaseHeader :userName="userName" @showAuthModal="showModal"/>
     <main>
-      <router-view :listCard="listCard" :itemsInCart="itemsInCart" @addToCart="addToCart"/>
+      <router-view :listCard="listCard" :itemsInCart="itemsInCart" @addToCart="addToCart" @showAuthModal="showModal"/>
     </main>
     <BaseFooter />
+    <AuthModal v-if="showAuthModal" @showAuthModal="showModal"/>
   </div>
 </template>
 
 <script>
 import BaseFooter from './components/BaseFooter.vue';
 import BaseHeader from './components/BaseHeader.vue';
+import AuthModal from '@/components/AuthModal.vue';
 export default{
   components: {
     BaseHeader,
-    BaseFooter
+    BaseFooter,
+    AuthModal,
   },
   methods: {
     addToCart(item){
       this.itemsInCart.push(item);
+    },
+    showModal(){
+      this.showAuthModal = !this.showAuthModal;
+      console.log("ok");
     }
   },
   props:{
@@ -26,6 +33,7 @@ export default{
   data(){
     return{
       userName:"Василий",
+      showAuthModal: false,
       itemsInCart: [],
       listCard: [
 				{
