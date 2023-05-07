@@ -20,7 +20,7 @@
                     <img src="@/assets/img/arrow.svg">
                     <SelectList v-if="showSizes" :selectedSize="this.selectedSize" :sizes="this.item.sizes" @selectSize="selectSize"/>
                 </div>
-                <div class="btn btn-primary">
+                <div class="btn btn-primary" @click="this.addToCart">
                     Добавить в корзину
                 </div>
             </div>
@@ -44,6 +44,14 @@ import ClickOutside from 'vue-click-outside'
             },
             selectSize(selectedSize){
                 this.selectedSize = selectedSize;
+            },
+            addToCart(){
+                if (this.selectedSize != "Выберите размер"){
+                    let tmpObj = JSON.parse(JSON.stringify(this.item));
+                    tmpObj.selectedSize = this.selectedSize;
+                    this.$emit("addToCart", tmpObj);
+                    this.$router.push("/cart");
+                }
             }
 
         },
@@ -60,7 +68,7 @@ import ClickOutside from 'vue-click-outside'
         props:{
             item:Object,
         },
-        created() {
+        mounted() {
             this.item = this.$route.params["item"];
         },
         directives: {

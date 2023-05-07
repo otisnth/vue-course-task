@@ -7,7 +7,7 @@
         <ul v-if="statusShow">
             <li v-for="(item, index) in sortList"
                 :key="index"
-                @click="($event) => sort($event, item)">
+                @click="() => sort(item)">
                 {{ item }}
             </li>
         </ul>
@@ -31,8 +31,7 @@ import ClickOutside from 'vue-click-outside'
             hideList() {
                 if(this.statusShow) this.statusShow = !this.statusShow;
             },
-            sort(event, el) {
-                event.stopPropagation();
+            sort(el) {
                 this.currentSort = el;
                 this.$emit('sort', el);
             },

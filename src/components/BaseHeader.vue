@@ -14,7 +14,9 @@
                     <img src="@/assets/img/profile.svg">
                     <p class="username" v-if="userName">{{ userName }}</p>
                 </button>
-                <button><img src="@/assets/img/cart.svg"></button>
+                <router-link to="/cart">
+                    <button><img src="@/assets/img/cart.svg"></button>
+                </router-link>
             </div>
         </div>
     </header>

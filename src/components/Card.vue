@@ -18,9 +18,6 @@
                 <p class="title">{{ item.title }}</p>
             </div>
         </router-link>
-        
-
-        
 
     </div>
 </template>
@@ -37,10 +34,6 @@
             item:Object,
         },
         methods:{
-            openDetail(id){
-                this.$route.params.push(this.item);
-                this.$router.push('catalog/' + id);
-            }
         },
         created(){
             this.item.transformPrice = this.item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");

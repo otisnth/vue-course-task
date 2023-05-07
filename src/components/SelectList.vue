@@ -4,7 +4,7 @@
       v-for="(item, index) in this.sizes"
       :key="index"
       :class="{ active: item }"
-      @click="($event) => selectSize($event, index, item)"
+      @click="() => selectSize(index, item)"
     >
       <span>{{ index }}</span>
       <img src="@/assets/img/icon-ok.svg" v-if="index == selectedSize" />
@@ -19,8 +19,7 @@ export default {
     selectedSize: String,
   },
   methods: {
-    selectSize(event, item, status) {
-      event.stopPropagation();
+    selectSize(item, status) {
       if (this.selectedSize == item) this.selectedSize = "Выберите размер";
       else if(status) this.selectedSize = item;
       this.$emit("selectSize", this.selectedSize);
@@ -48,6 +47,7 @@ ul {
     padding: 6px 16px;
     display: grid;
     grid-template-columns: auto min-content;
+    align-items: center;
     gap: 8px;
     font-family: "Inter";
     font-style: normal;
