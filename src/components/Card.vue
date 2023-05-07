@@ -9,7 +9,7 @@
                 </div>
             </div>
 
-            <p class="price">{{ item.price }} руб</p>
+            <p class="price">{{ item.transformPrice }} руб</p>
             <div class="card-content">
                 <div class="brand">
                     Бренд
@@ -42,8 +42,8 @@
                 this.$router.push('catalog/' + id);
             }
         },
-        mounted(){
-            this.item.price = this.item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        created(){
+            this.item.transformPrice = this.item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         }
     }
 </script>

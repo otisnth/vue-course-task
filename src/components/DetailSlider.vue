@@ -63,13 +63,26 @@
 
     .slider-preview {
         display: grid;
-        gap: 16px;
-        grid-template-columns: repeat(4, minmax(auto, 62px));
+        grid-template-columns: repeat(4, minmax(auto, 64px));
+        justify-content: start;
         img {
-            max-width: 62px;
+            margin-right: 16px;
+            width: 62px;
+            box-sizing: content-box;
         }
         .active {
             border: 2px solid #0D1421;
+        }
+
+        .active:nth-child(odd) {
+            border-right: none;
+            margin-right: 0;
+            padding-right: 8px;
+        }
+
+        .active:nth-child(even) {
+            border-left: none;
+            padding-left: 8px;
         }
     }
 
